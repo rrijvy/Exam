@@ -1,0 +1,113 @@
+﻿@import "_mixins.scss";
+
+$base: #fff;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ecf0f1;
+}
+
+.btn {
+    padding: 7px 13px;
+    text-decoration: none;
+    background-color: #bdc3c7;
+}
+
+
+.header {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/images/exam.jpg');
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    nav {
+        width: 100%;
+        margin-top: 3rem;
+
+        ul {
+            float: right;
+            margin-right: 20%;
+
+            li {
+                list-style-type: none;
+                float: left;
+                display: inline-block;
+
+                a {
+                    text-decoration: none;
+                    padding: 10px 16px;
+                    font-size: 1.6rem;
+                    color: #e67e22;
+
+                    &:hover {
+                        border-bottom: 1px dashed #f39c12;
+                        color: #f39c12;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.index {
+    padding: 0px 20px;
+    width: 100%;
+
+    &-header {
+        width: 50%;
+        margin: auto;
+
+        h2 {
+            text-align: center;
+        }
+    }
+
+    &-text {
+        width: 100%;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    &-columns {
+        width: 60%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-column {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+
+            img{
+                width: 60px;
+            }
+        }
+    }
+}
+
+
+
+.clearfix {
+    display: inline-block;
+
+    &:after {
+        content: '.';
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}

@@ -1,35 +1,75 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+html {
+  font-size: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
+body {
+  background-color: #ecf0f1; }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.btn {
+  padding: 7px 13px;
+  text-decoration: none;
+  background-color: #bdc3c7; }
+
+.header {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/exam.jpg");
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .header nav {
     width: 100%;
-}
+    margin-top: 3rem; }
+    .header nav ul {
+      float: right;
+      margin-right: 20%; }
+      .header nav ul li {
+        list-style-type: none;
+        float: left;
+        display: inline-block; }
+        .header nav ul li a {
+          text-decoration: none;
+          padding: 10px 16px;
+          font-size: 1.6rem;
+          color: #e67e22; }
+          .header nav ul li a:hover {
+            border-bottom: 1px dashed #f39c12;
+            color: #f39c12; }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
+.index {
+  padding: 0px 20px;
+  width: 100%; }
+  .index-header {
+    width: 50%;
+    margin: auto; }
+    .index-header h2 {
+      text-align: center; }
+  .index-text {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem; }
+  .index-columns {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .index-columns-column {
+      flex: 1;
+      text-align: center;
+      padding: 10px; }
+      .index-columns-column img {
+        width: 60px; }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
+.clearfix {
+  display: inline-block; }
+  .clearfix:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
