@@ -11,9 +11,10 @@ using System;
 namespace Exam.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180721124811_till_ExamPaperController")]
+    partial class till_ExamPaperController
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,63 +70,6 @@ namespace Exam.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Exam.Models.ExamPaper", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("ExamTitle")
-                        .IsRequired();
-
-                    b.Property<string>("Instruction");
-
-                    b.Property<string>("SubjectCode")
-                        .IsRequired();
-
-                    b.Property<string>("SubjectName")
-                        .IsRequired();
-
-                    b.Property<int>("TotalMarks");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExamPaper");
-                });
-
-            modelBuilder.Entity("Exam.Models.Question", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ExamPaperId");
-
-                    b.Property<string>("OptionA")
-                        .IsRequired();
-
-                    b.Property<string>("OptionB")
-                        .IsRequired();
-
-                    b.Property<string>("OptionC")
-                        .IsRequired();
-
-                    b.Property<string>("OptionD")
-                        .IsRequired();
-
-                    b.Property<string>("QuestionName")
-                        .IsRequired();
-
-                    b.Property<string>("RightAnswer")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExamPaperId");
-
-                    b.ToTable("Question");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -234,14 +178,6 @@ namespace Exam.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Exam.Models.Question", b =>
-                {
-                    b.HasOne("Exam.Models.ExamPaper", "ExmaPaper")
-                        .WithMany("Questions")
-                        .HasForeignKey("ExamPaperId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

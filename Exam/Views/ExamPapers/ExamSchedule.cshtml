@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ExamPaper>
+@{
+    ViewData["Title"] = "ExamSchedule";
+}
+
+<div class="schedule">
+    <ul>
+        <li><h3>You can give below exams.</h3></li>
+        <li><h3>At a time you can attend only one exam.</h3></li>
+    </ul>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ExamTitle)</th>
+                <th>@Html.DisplayNameFor(model => model.SubjectName)</th>
+                <th>@Html.DisplayNameFor(model => model.SubjectCode)</th>
+                <th>@Html.DisplayNameFor(model => model.TotalMarks)</th>
+                <th>@Html.DisplayNameFor(model => model.Date)</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.ExamTitle</td>
+                <td>@item.SubjectName</td>
+                <td>@item.SubjectCode</td>
+                <td>@item.TotalMarks</td>
+                <td>@item.Date</td>
+                <td><a href="/ExamPapers/Details/@item.Id">Show Details</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,4 +1,4 @@
-﻿@mixin atSmall {
+﻿@mixin atLarge {
     @media (min-width: 1281px) {
         @content;
     }
@@ -10,7 +10,7 @@
     }
 }
 
-@mixin atLarge {
+@mixin atSmall {
     @media (min-width: 320px) and (max-width: 480px) {
         @content;
     }

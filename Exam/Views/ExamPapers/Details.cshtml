@@ -1,0 +1,26 @@
+﻿@model Exam.Models.ExamPaper
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="exam_details">
+    <h3>@Model.ExamTitle</h3>
+    <p>@Model.SubjectName || @Model.SubjectCode</p>
+    <div class="exam_details-date_marks clearfix">
+        <p class="exam_details-date_marks-1st">Date : @Model.Date</p>
+        <p class="exam_details-date_marks-2nd">Total marks : @Model.TotalMarks</p>
+    </div>
+    <p>Instruction :<strong> @Model.Instruction</strong></p>
+    <a href="/Questions/GetQuestions" class="btn">Start exam</a>
+</div>
+
+@section scripts{
+    <script type="text/javascript" language="javascript">
+        $(function() {
+            $(this).bind("contextmenu", function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+}

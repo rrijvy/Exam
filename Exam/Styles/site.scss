@@ -18,7 +18,7 @@ body {
 }
 
 .btn {
-    padding: 7px 13px;
+    padding: 7px 10px;
     text-decoration: none;
     background-color: #bdc3c7;
 }
@@ -26,7 +26,7 @@ body {
 
 .header {
     background-image: linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/images/exam.jpg');
-    height: 50vh;
+    height: 40vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -85,20 +85,85 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-direction: row;
+
+        @include atSmall {
+            flex-direction: column;
+        }
 
         &-column {
             flex: 1;
             text-align: center;
             padding: 10px;
 
-            img{
+            img {
                 width: 60px;
             }
         }
     }
 }
 
+.schedule {
+    width: 80%;
+    margin: auto;
+    text-align: center;
 
+    ul {
+        li {
+            list-style: none;
+        }
+    }
+
+    &-table {
+        border-collapse: separate;
+        width: 100%;
+
+        td, th {
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+    }
+}
+
+.exam_details {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    height: 50vh;
+
+    h3 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    &-date_marks {
+        display: inline-block;
+        width: 100%;
+
+        &-1st {
+            float: left;
+            margin: 0;
+        }
+
+        &-2nd {
+            float: right;
+            margin: 0;
+        }
+    }
+
+}
 
 .clearfix {
     display: inline-block;

@@ -22,5 +22,9 @@ namespace Exam.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Exam.Models.ExamPaper> ExamPaper { get; set; }
+
+        public DbSet<Exam.Models.Question> Question { get; set; }
     }
 }
