@@ -12,15 +12,129 @@
         <p class="exam_details-date_marks-2nd">Total marks : @Model.TotalMarks</p>
     </div>
     <p>Instruction :<strong> @Model.Instruction</strong></p>
-    <a href="/Questions/GetQuestions" class="btn">Start exam</a>
+    <a href="#" class="btn" id="start_exam">Start exam</a>
+    <div class="exam_details-question clearfix">
+        <p class="exam_details-question-name"></p>
+        <p class="exam_details-question-option option1"></p>
+        <p class="exam_details-question-option option2"></p>
+        <p class="exam_details-question-option option3"></p>
+        <p class="exam_details-question-option option4"></p>
+        <a href="#" class="nextQuestion btn">Next question</a>
+    </div>
 </div>
 
 @section scripts{
     <script type="text/javascript" language="javascript">
-        $(function() {
-            $(this).bind("contextmenu", function(e) {
-                e.preventDefault();
+        $(document).ready(function () {
+
+            //$(this).bind('contextmenu', function (e) {
+            //    e.preventDefault();
+
+            //});
+
+            var correctAns = "";
+
+            function getQuestion(questionNo) {
+                $.ajax({
+                    url: "/GetData/Questions/" + questionNo,
+                    cache: false,
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function (data) {
+                        var question = '<b>Question : </b>' + data.questionName;
+                        var option1 = 'a. ' + data.optionA;
+                        var option2 = 'b. ' + data.optionB;
+                        var option3 = 'c. ' + data.optionC;
+                        var option4 = 'd. ' + data.optionD;
+                        correctAns = data.rightAnswer;
+                        $('.exam_details-question-name').html(" ");
+                        $('.exam_details-question-option').html(" ");
+                        $('.exam_details-question-name').html(question);
+                        $('.option1').html(option1).attr('data-value', data.optionA);
+                        $('.option2').html(option2).attr('data-value', data.optionB);
+                        $('.option3').html(option3).attr('data-value', data.optionC);
+                        $('.option4').html(option4).attr('data-value', data.optionD);
+
+                    },
+                    error: function (xhr, status, error) {
+                        if (status == 'error') {
+                            $('.exam_details-question-name').html("No data");
+
+                        }
+
+                    }
+
+                });
+
+                //$.get("/GetData/Questions/" + questionNo, function (data) {
+                //    //console.log(data);
+                //    var question = '<b>Question : </b>' + data.questionName;
+                //    var option1 = 'a. ' + data.optionA;
+                //    var option2 = 'b. ' + data.optionB;
+                //    var option3 = 'c. ' + data.optionC;
+                //    var option4 = 'd. ' + data.optionD;
+                //    correctAns = data.rightAnswer;
+                //    $('.exam_details-question-name').html(" ");
+                //    $('.exam_details-question-option').html(" ");
+                //    $('.exam_details-question-name').html(question);
+                //    $('.option1').html(option1).attr('data-value', data.optionA);
+                //    $('.option2').html(option2).attr('data-value', data.optionB);
+                //    $('.option3').html(option3).attr('data-value', data.optionC);
+                //    $('.option4').html(option4).attr('data-value', data.optionD);
+                //}, 'json');
+
+            }
+
+            $('#start_exam').on('click', function () {
+                $('#start_exam').fadeOut();
+                var questionNo = 1;
+
+                var x = 0;
+
+
+
+                var right = 0;
+                var wrong = 0;
+                getQuestion(questionNo);
+
+                $('.exam_details-question-option').css('display', 'block');
+
+                $('.exam_details-question-option').on('click', function () {
+
+                    var answer = $(this).data().value;                    
+
+                    while (x <= questionNo) {
+                        if (correctAns == answer) {
+                            $(this).addClass('answerCorrect');
+
+                        } else {
+                            $(this).addClass('answerWrong');
+
+                        }
+                        x++;
+
+                    }
+
+                });
+
+                $('.nextQuestion').on('click', function () {
+                    questionNo++;
+                    getQuestion(questionNo);
+
+
+
+                    if ($('.exam_details-question-option').hasClass('answerCorrect') || $('.exam_details-question-option').hasClass('answerWrong')) {
+                        $('.exam_details-question-option').removeClass('answerCorrect');
+                        $('.exam_details-question-option').removeClass('answerWrong');
+
+                    }
+
+
+                });
+
             });
+
         });
     </script>
 }

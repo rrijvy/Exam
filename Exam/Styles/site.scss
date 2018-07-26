@@ -138,7 +138,6 @@ body {
     width: 80%;
     margin: auto;
     text-align: center;
-    height: 50vh;
 
     h3 {
         text-align: center;
@@ -163,6 +162,30 @@ body {
         }
     }
 
+    &-question {
+        padding-top: 2rem;
+        width: 100%;
+
+        &-name {
+            width: 100%
+        }
+
+        &-option {
+            display: none;
+            width: 46%;
+            margin: 20px;
+            border: 1px solid #333;
+            border-radius: 7px;
+            background-color: rgba(241, 242, 246,1.0);
+            padding: 13px 15px;
+            float: left;
+            color: #333;
+
+            &:nth-child(odd) {
+                margin-right: 0px;
+            }
+        }
+    }
 }
 
 .clearfix {
@@ -175,4 +198,13 @@ body {
         clear: both;
         visibility: hidden;
     }
+}
+
+.answerCorrect {
+    background-color: rgba(123, 237, 159, .6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.answerWrong {
+    background-color: rgba(255, 121, 121, .6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

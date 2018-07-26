@@ -90,8 +90,7 @@ body {
 .exam_details {
   width: 80%;
   margin: auto;
-  text-align: center;
-  height: 50vh; }
+  text-align: center; }
   .exam_details h3 {
     text-align: center; }
   .exam_details p {
@@ -105,6 +104,23 @@ body {
     .exam_details-date_marks-2nd {
       float: right;
       margin: 0; }
+  .exam_details-question {
+    padding-top: 2rem;
+    width: 100%; }
+    .exam_details-question-name {
+      width: 100%; }
+    .exam_details-question-option {
+      display: none;
+      width: 46%;
+      margin: 20px;
+      border: 1px solid #333;
+      border-radius: 7px;
+      background-color: #f1f2f6;
+      padding: 13px 15px;
+      float: left;
+      color: #333; }
+      .exam_details-question-option:nth-child(odd) {
+        margin-right: 0px; }
 
 .clearfix {
   display: inline-block; }
@@ -114,3 +130,11 @@ body {
     height: 0;
     clear: both;
     visibility: hidden; }
+
+.answerCorrect {
+  background-color: rgba(123, 237, 159, 0.6);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.answerWrong {
+  background-color: rgba(255, 121, 121, 0.6);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
